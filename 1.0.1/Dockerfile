@@ -17,6 +17,6 @@ USER jupyter
 WORKDIR /home/jupyter
 
 COPY --chown=jupyter:jupyter example /home/jupyter
-COPY --chown=jupyter:jupyter .jupyter /home/jupyter/.jupyter
+COPY --chown=jupyter:jupyter conf/jupyter_config.py /home/jupyter/.jupyter/jupyter_config.py
 
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--allow_remote_access", "--no-browser"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser"]
