@@ -16,6 +16,6 @@ RUN usermod -u 1000 jupyter && usermod -G 1000 jupyter
 USER jupyter
 WORKDIR /home/jupyter
 
-COPY example /home/jupyter
+COPY --chown=jupyter:jupyter example /home/jupyter
 
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--allow-root", "--no-browser"]
