@@ -8,5 +8,5 @@ RUN pip install torchvision matplotlib
 
 EXPOSE 8888
 
-USER docker
+USER jupyter
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--allow-root", "--no-browser"]
