@@ -18,4 +18,4 @@ WORKDIR /home/jupyter
 
 COPY --chown=jupyter:jupyter example /home/jupyter
 
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--allow-root", "--no-browser"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--allow_origin=*","--allow_remote_access", "base_url=/jupyter", "--disable_check_xsrf", "--no-browser", "--trust_xheaders"]
