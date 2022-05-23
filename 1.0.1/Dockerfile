@@ -11,6 +11,7 @@ EXPOSE 8888
 RUN useradd --create-home --no-log-init --shell /bin/bash jupyter
 RUN adduser jupyter sudo \
 RUN echo 'jupyter:1q2w3e4r' | chpasswd
+RUN usermod -u 99999 jupyter && usermod -G 99999 jupyter
 
 USER jupyter
 WORKDIR /home/jupyter
