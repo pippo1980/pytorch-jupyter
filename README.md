@@ -58,5 +58,5 @@ docker run --rm \                       # remove the container when it exits
            --gpus all \                 # support all gpus (docker > 19.03)
            -v /local_vol:/docker_vol \  # volume: mapping local folder to container
            -e JUPYTER_TOKEN=passwd \    # Jupyter password: passwd
-           -d pippo1980/pytorch-notebook:latest
+           -d pippo1980/pytorch-jupyter:latest
 ```
