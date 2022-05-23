@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t pytorch-jupyter:1.0.1 .
+docker build -t pippo1980/pytorch-jupyter:1.0.1 .
