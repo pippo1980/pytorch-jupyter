@@ -6,4 +6,4 @@ ENV SHELL=/bin/bash
 COPY --chown=jupyter:jupyter jupyter_config.template.py /home/jupyter/.jupyter/jupyter_config.template.py
 COPY --chown=jupyter:jupyter start.sh /app/start.sh
 
-CMD ["/app/start.sh"]
+ENTRYPOINT ["/app/start.sh"]
