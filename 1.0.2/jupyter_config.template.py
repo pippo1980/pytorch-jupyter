@@ -197,7 +197,7 @@ c.NotebookApp.allow_remote_access = True
 #                                 Leading and trailing slashes can be omitted,
 #                                 and will automatically be added.
 #  Default: '/'
-c.NotebookApp.base_url = '/##JUPYTER_BASE_URL##'
+c.NotebookApp.base_url = '/jupyter-gw/##JUPYTER_BASE_URL##'
 
 ## Specify what command to use to invoke a web
 #                        browser when opening the notebook. If not specified, the
