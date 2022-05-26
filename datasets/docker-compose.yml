@@ -1,0 +1,25 @@
+version: "3.9"
+
+volumes:
+  datasets:
+    external: true
+
+services:
+  keras-datasets:
+    image: pippo1980/keras-datasets:1.0.0
+    container_name: keras-datasets
+    hostname: keras-datasets
+    volumes:
+      - datasets:/home/jupyter/data
+  jupyter:
+    image: pippo1980/pytorch-jupyter:1.0.2
+    container_name: jupyter
+    hostname: jupyter
+    depends_on: keras-datasets
+    environment:
+      JUPYTER_TOKEN : "1q2w3e4r"
+      JUPYTER_BASE_URL : "test"
+    ports:
+      - "9999:8888"
+    volumes:
+      - datasets:/home/jupyter/data
