@@ -9,4 +9,6 @@ RUN adduser jupyter -D -G jupyter -s /bin/bash -u 1000 -h /home/jupyter
 USER jupyter
 WORKDIR /home/jupyter
 
+COPY --chown=jupyter:jupyter data /home/jupyter/data
+
 ENTRYPOINT  ["sh"]
