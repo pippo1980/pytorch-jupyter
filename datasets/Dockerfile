@@ -1,4 +1,4 @@
-FROM pippo1980/keras-datasets:1.0.1
+FROM registry.cn-shanghai.aliyuncs.com/pippo1980/keras-datasets:1.0.1
 
 # Set bash as default shell
 ENV SHELL=/bin/bash
