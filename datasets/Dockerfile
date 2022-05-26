@@ -1,17 +1,14 @@
-FROM registry.cn-shanghai.aliyuncs.com/eci_open/alpine:3.5
+FROM pippo1980/keras-datasets:1.0.1
 
 # Set bash as default shell
 ENV SHELL=/bin/bash
 
+USER root
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories
-
-RUN addgroup -g 1000 -S jupyter
-RUN adduser jupyter -D -G jupyter -s /bin/bash -u 1000 -h /home/jupyter
-RUN echo 'jupyter ALL=(ALL) /bin/su' >>  /etc/sudoe
+RUN apk add supervisor && rm  -rf /tmp/* /var/cache/apk/*
+ADD supervisord.conf /etc/
 
 USER jupyter
 WORKDIR /home/jupyter
 
-COPY --chown=jupyter:jupyter data /home/jupyter/data
-
-ENTRYPOINT  ["sh"]
+ENTRYPOINT ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf"]
