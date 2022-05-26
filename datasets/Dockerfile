@@ -1,6 +1,14 @@
-FROM pippo1980/keras-datasets:1.0.0
+FROM alpine:3.16.0
 
 # Set bash as default shell
-COPY --chown=jupyter:jupyter start.sh /app/start.sh
+ENV SHELL=/bin/bash
 
-ENTRYPOINT  ["/app/start.sh"]
+RUN addgroup -g 1000 -S jupyter
+RUN adduser jupyter -D -G jupyter -s /bin/bash -u 1000 -h /home/jupyter
+
+USER jupyter
+WORKDIR /home/jupyter
+
+COPY --chown=jupyter:jupyter data /home/jupyter/data
+
+ENTRYPOINT  ["sh"]
