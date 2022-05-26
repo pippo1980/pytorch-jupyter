@@ -1,13 +1,10 @@
-FROM registry.cn-shanghai.aliyuncs.com/eci_open/alpine:3.5
+FROM alpine:3.16.0
 
 # Set bash as default shell
 ENV SHELL=/bin/bash
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories
-
 RUN addgroup -g 1000 -S jupyter
 RUN adduser jupyter -D -G jupyter -s /bin/bash -u 1000 -h /home/jupyter
-RUN echo 'jupyter ALL=(ALL) /bin/su' >>  /etc/sudoe
 
 USER jupyter
 WORKDIR /home/jupyter
