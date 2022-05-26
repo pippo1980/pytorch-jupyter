@@ -15,7 +15,7 @@ services:
     image: pippo1980/pytorch-jupyter:1.0.2
     container_name: jupyter
     hostname: jupyter
-    depends_on: keras-datasets
+    depends_on: [keras-datasets]
     environment:
       JUPYTER_TOKEN : "1q2w3e4r"
       JUPYTER_BASE_URL : "test"
